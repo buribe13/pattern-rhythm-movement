@@ -194,7 +194,8 @@ function setup() {
   colorMode(RGB, 255, 255, 255, 100);
   
   // Set default text properties
-  textFont("IBM Plex Sans");
+  // Use sans-serif which will use SF Pro on macOS via CSS
+  textFont("sans-serif");
   textSize(13);
   textAlign(CENTER);
   textLeading(13);
@@ -260,13 +261,13 @@ function setup() {
 }
 
 function draw() {
-  // White background
-  background(255, 255, 255);
+  // Transparent background so CSS gradient shows through
+  clear();
   
   time += 0.02;
   
-  // Draw gradient background
-  drawPatternBackground();
+  // Gradient background is now handled by CSS on body/html
+  // drawPatternBackground();
   
   // Check for album hover
   checkAlbumHover();
@@ -615,9 +616,8 @@ function getLuminance(r, g, b) {
 
 // Helper function to determine if text should be white or black based on background
 function getTextColorForBackground(bgColor) {
-  let luminance = getLuminance(bgColor.r, bgColor.g, bgColor.b);
-  // If background is dark (luminance < 0.5), use white text, otherwise use black
-  return luminance < 0.5 ? {r: 255, g: 255, b: 255} : {r: 0, g: 0, b: 0};
+  // Always return black text
+  return {r: 0, g: 0, b: 0};
 }
 
 function drawDisplayedAlbum() {

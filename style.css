@@ -4,12 +4,24 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
+  height: 100%;
+  width: 100%;
   overflow: hidden;
-  background: #ffffff;
+  background: linear-gradient(to bottom, #fafaff 0%, #f5f5fa 100%);
+  background-attachment: fixed;
   font-family: "IBM Plex Sans", sans-serif;
 }
 
 canvas {
   display: block;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", system-ui, sans-serif;
+  font-size: 13px;
 }
